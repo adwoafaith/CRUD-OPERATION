@@ -1,5 +1,5 @@
 const { response } = require('express')
-const Employee = require('./schema')
+const Employee = require('../model/schema')
 
 //showw all employee
 const show =async (req, res,next) =>{
@@ -36,7 +36,19 @@ const addEmployee = async(req, res,next) =>{
         email:req.body.email,
         password:req.body.password,
         age:req.body.age
-    })
+    })//single file
+    // if (req.file){
+    //     Employee.avatar = req.file.path
+    // }
+    //multiple file uplad
+    if(req.files){
+        let path =''
+        req.files.forEach(function(files,index,arr){
+            path = path + files.path +','
+        })
+        path = path.substring(0,path.lastIndexOf(","))
+        Employee.avatar = path
+    }
     employee.save()
     .then(response =>{
         res.status(200).json({

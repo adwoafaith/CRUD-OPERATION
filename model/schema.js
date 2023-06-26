@@ -4,26 +4,29 @@ const Schema = mongoose.Schema;
 
 //create the schema
 const employeeSchema = new Schema({
-    name:{
+    name: {
         type: String
     },
-    designation:{
+    designation: {
         type: String
     },
-    email:{
+    email: {
         type: String
     },
-    password:{
+    password: {
         type: String,
-        require : true,
+        require: true,
     },
-    age:{
+    age: {
         type: Number
+    },
+    avatar: {
+        type: String
     }
 
+}, { timestamps: true })
 
 
-},{timestamps:true})
+const Employee = mongoose.model('Employee', employeeSchema)
 
-const Employee = mongoose.model('Employee',employeeSchema)
 module.exports = Employee;

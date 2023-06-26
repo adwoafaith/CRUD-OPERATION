@@ -3,15 +3,19 @@ const app = express()
 const db = require ('./db/db')
 const routes = require('./routes/routes')
 require('dotenv').config()
+const register = require('./routes/authRoutes')
 const port = process.env.PORT || 5000
 
 
 //middlewares
 app.use(express.json())
+db()
 app.use('/items',routes)
+app.use('/api',register)
+app.use('/uploads',express.static('uploads'))
 app.get('/', (req,res)=>{
     res.json({msg:`welcome to the home page`})
-})
+}) 
 
 
 

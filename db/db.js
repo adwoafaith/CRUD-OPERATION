@@ -1,8 +1,8 @@
 const  mongoose = require('mongoose')
-const schema = require ('../controllers/schema')
+// const schema = require ('../controllers/schema')
 
-const uri ="mongodb+srv://faithmensah:mymongoatlas055@youtubevideos.qedywra.mongodb.net/?retryWrites=true&w=majority";
-//"mongodb://localhost:27017/Employee"
+// const uri ="mongodb+srv://faithmensah:mymongoatlas055@youtubevideos.qedywra.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb://localhost:27017/Employee"
 //mongodb://localhost:27017/todo_app
  
  //mongodb://localhost:27017/
@@ -16,7 +16,7 @@ const uri ="mongodb+srv://faithmensah:mymongoatlas055@youtubevideos.qedywra.mong
         console.log('connected to monogoDB')
     }catch(error)
     {
-        console.log(error);
+        console.log(`Error: ${error}`);
     }
  }
 
